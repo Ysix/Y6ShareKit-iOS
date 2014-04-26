@@ -16,6 +16,7 @@
 
 // the text for closing the webview presented in modal
 #define CLOSE_BUTTON_TITLE @"Close"
+// TODO: replace the text by an icon
 
 @protocol MFMailComposeViewControllerDelegate;
 @protocol MFMessageComposeViewControllerDelegate;

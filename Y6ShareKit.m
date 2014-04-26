@@ -81,7 +81,7 @@
     return [MFMailComposeViewController canSendMail];
 }
 
-// must do : add parameter to set the subject of the mail too
+// TODO: add parameter to set the subject of the mail too
 
 + (BOOL)sendMailwithContent:(NSString *)message toAdresses:(NSArray *)contacts andSetMailComposeDelegate:(id)mailComposeDelegate fromViewController:(UIViewController *)vc
 {
@@ -109,11 +109,11 @@
     return YES;
 }
 
-// must do : add parameters to share more things (pictures, link, ...)
+// TODO: add parameters to share more things (pictures, link, ...)
 
 + (void)shareStatusOnTwitter:(NSString *)status fromViewController:(UIViewController *)vc
 {
-    // to do : Use the social framework, Tweeter framework is deprecated
+// TODO: Use the social framework, Tweeter framework is deprecated
     
     if (NSClassFromString(@"TWTweetComposeViewController") && [TWTweetComposeViewController canSendTweet])
     {
@@ -151,7 +151,7 @@
     return NO;
 }
 
-// must do : add parameters to share more things (pictures, status, ...)
+// TODO: add parameters to share more things (pictures, status, ...)
 
 + (void)shareLinkOnFaceBook:(NSString *)link fromViewController:(UIViewController *)vc
 {
@@ -162,7 +162,7 @@
     {
         [FBDialogs presentShareDialogWithParams:params clientState:nil handler:^(FBAppCall *call, NSDictionary *results, NSError *error) {
             
-            // to do : handle the error
+// TODO: handle the error
             
         }];
     }
