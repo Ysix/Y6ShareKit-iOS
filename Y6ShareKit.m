@@ -13,7 +13,6 @@
 
 @implementation Y6ShareKit
 
-
 + (void)openModalViewControllerWithWebSite:(NSString *)urlString andTitle:(NSString *)title onViewController:(UIViewController *)vc
 {
     UIViewController *modalVC = [[UIViewController alloc] init];
