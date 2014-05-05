@@ -133,7 +133,7 @@
     }
     else
     {
-        [self openModalViewControllerWithWebSite:[NSString stringWithFormat:@"https://twitter.com/intent/tweet?source=webclient&text=%@", status] andTitle:@"Twitter" onViewController:vc];
+        [self openModalViewControllerWithWebSite:[[NSString stringWithFormat:@"https://twitter.com/intent/tweet?source=webclient&text=%@", status] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] andTitle:@"Twitter" onViewController:vc];
     }
 }
 

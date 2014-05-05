@@ -10,7 +10,7 @@
 // Need - MessageUI.framework
 //      - Social.framework
 //      - FacebookSDK
-//      - Tweeter.framework
+//      - Twitter.framework
 
 // iOS 6.0 and later
 
