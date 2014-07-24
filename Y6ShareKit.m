@@ -6,7 +6,7 @@
 //
 
 #import "Y6ShareKit.h"
-#import <FacebookSDK/FacebookSDK.h>
+//#import <FacebookSDK/FacebookSDK.h>
 #import <MessageUI/MessageUI.h>
 #import <Twitter/TWTweetComposeViewController.h>
 #import <Social/Social.h>
@@ -93,6 +93,8 @@
         [mailVC setMessageBody:message isHTML:NO];
         if (contacts && [contacts count] > 0)
             [mailVC setToRecipients:contacts];
+
+		[mailVC setSubject:@"Application Startup Assembly"];
         if (mailComposeDelegate)
         {
             [mailVC setMailComposeDelegate:mailComposeDelegate];
@@ -135,14 +137,16 @@
     }
 }
 
-+ (BOOL)canShareLinkOnFacebook:(NSString *)link
++ (BOOL)canShareTextOnFaceBook:(NSString *)text withLink:(NSString *)link
 {
-    FBShareDialogParams *params = [[FBShareDialogParams alloc] init];
-    params.link = [NSURL URLWithString:link];
-    
-    if ([FBDialogs canPresentShareDialogWithParams:params])
-        return YES;
-    
+	// implement in category for facebook sdk
+
+//    FBShareDialogParams *params = [[FBShareDialogParams alloc] init];
+//    params.link = [NSURL URLWithString:link];
+//    
+//    if ([FBDialogs canPresentShareDialogWithParams:params])
+//        return YES;
+
     if ((NSClassFromString(@"SLComposeViewController") && [SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]))
         return YES;
     
@@ -151,25 +155,30 @@
 
 // TODO: add parameters to share more things (pictures, status, ...)
 
-+ (void)shareLinkOnFaceBook:(NSString *)link fromViewController:(UIViewController *)vc
++ (void)shareTextOnFaceBook:(NSString *)text withLink:(NSString *)link fromViewController:(UIViewController *)vc
 {
-    FBShareDialogParams *params = [[FBShareDialogParams alloc] init];
-    params.link = [NSURL URLWithString:link];
-    
-    if ([FBDialogs canPresentShareDialogWithParams:params])
-    {
-        [FBDialogs presentShareDialogWithParams:params clientState:nil handler:^(FBAppCall *call, NSDictionary *results, NSError *error) {
-            
-// TODO: handle the error
-            
-        }];
-    }
-    else if (NSClassFromString(@"SLComposeViewController") && [SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook])
+
+	// implement in category for facebook sdk
+
+//    FBShareDialogParams *params = [[FBShareDialogParams alloc] init];
+//    params.link = [NSURL URLWithString:link];
+
+//    if ([FBDialogs canPresentShareDialogWithParams:params])
+//    {
+//        [FBDialogs presentShareDialogWithParams:params clientState:nil handler:^(FBAppCall *call, NSDictionary *results, NSError *error) {
+//            
+//// TODO: handle the error
+//            
+//        }];
+//    }
+//    else
+	if (NSClassFromString(@"SLComposeViewController") && [SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook])
     {
         SLComposeViewController *cvc = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
         
-        [cvc setInitialText:@"" ];
-        [cvc addURL:[NSURL URLWithString:link]];
+        [cvc setInitialText:text];
+		if (link)
+			[cvc addURL:[NSURL URLWithString:link]];
         cvc.completionHandler = ^(SLComposeViewControllerResult res) {
             
             [vc dismissViewControllerAnimated:YES completion:nil];

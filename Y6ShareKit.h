@@ -9,7 +9,6 @@
 
 // Need - MessageUI.framework
 //      - Social.framework
-//      - FacebookSDK
 //      - Twitter.framework
 
 // iOS 6.0 and later
@@ -81,20 +80,22 @@
 /**
  *  Description
  *
+ *  @param text The text you want to share
  *  @param link The link you want to share
  *
- *  @return YES if the device is able to send the link on facebook
+ *  @return YES if the device is able to send the text and link on facebook
  */
-+ (BOOL)canShareLinkOnFacebook:(NSString *)link;
++ (BOOL)canShareTextOnFaceBook:(NSString *)text withLink:(NSString *)link;
 
 /**
- *  Present a modal ViewController for sharing the link
+ *  Present a modal ViewController for sharing the text and link
  *  Starting by testing if the user has the Facebook App on his phone, otherwise if the user has set is Facebook Account in the settings app.
  *
+ *  @param text The text you want to share
  *  @param link The link you want to share
  *  @param vc   The source ViewController which prensent the modal ViewController.
  */
-+ (void)shareLinkOnFaceBook:(NSString *)link fromViewController:(UIViewController *)vc;
++ (void)shareTextOnFaceBook:(NSString *)text withLink:(NSString *)link fromViewController:(UIViewController *)vc;
 
 
 @end
