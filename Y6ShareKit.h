@@ -52,6 +52,7 @@
 /**
  *  Present a modal ViewController for sending a mail
  *
+ *  @param subject             The default subject of the mail
  *  @param message             The default message of the mail
  *  @param contacts               An array of strings containing the initial recipients of the message.
  *  @param messageComposeDelegate Any object that implement the MFMailComposeViewControllerDelegate.
@@ -59,7 +60,7 @@
  *
  *  @return a booleen set to YES if the modal ViewController has been shown
  */
-+ (BOOL)sendMailwithContent:(NSString *)message toAdresses:(NSArray *)contacts andSetMailComposeDelegate:(id <MFMailComposeViewControllerDelegate>)mailComposeDelegate fromViewController:(UIViewController *)vc;
++ (BOOL)sendMailwithSubject:(NSString *)subject content:(NSString *)message toAdresses:(NSArray *)contacts andSetMailComposeDelegate:(id)mailComposeDelegate fromViewController:(UIViewController *)vc;
 
 /**
  *  Test if the device can send a tweet

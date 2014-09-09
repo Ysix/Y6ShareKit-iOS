@@ -83,19 +83,20 @@
 
 // TODO: add parameter to set the subject of the mail too
 
-+ (BOOL)sendMailwithContent:(NSString *)message toAdresses:(NSArray *)contacts andSetMailComposeDelegate:(id)mailComposeDelegate fromViewController:(UIViewController *)vc
++ (BOOL)sendMailwithSubject:(NSString *)subject content:(NSString *)message toAdresses:(NSArray *)contacts andSetMailComposeDelegate:(id)mailComposeDelegate fromViewController:(UIViewController *)vc
 {
     if ([MFMailComposeViewController canSendMail])
     {
-        
         MFMailComposeViewController *mailVC = [[MFMailComposeViewController alloc] init];
         
         [mailVC setMessageBody:message isHTML:NO];
         if (contacts && [contacts count] > 0)
             [mailVC setToRecipients:contacts];
 
-		[mailVC setSubject:@"Application Startup Assembly"];
-        if (mailComposeDelegate)
+		if (subject)
+			[mailVC setSubject:subject];
+
+		if (mailComposeDelegate)
         {
             [mailVC setMailComposeDelegate:mailComposeDelegate];
         }
