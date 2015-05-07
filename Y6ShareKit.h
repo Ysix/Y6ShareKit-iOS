@@ -7,6 +7,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class UIViewController;
+
 // Need - MessageUI.framework
 //      - Social.framework
 //      - Twitter.framework

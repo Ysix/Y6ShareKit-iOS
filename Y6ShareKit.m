@@ -116,7 +116,7 @@
 
 + (void)shareStatusOnTwitter:(NSString *)status fromViewController:(UIViewController *)vc
 {
-// TODO: Use the social framework, Tweeter framework is deprecated
+ // TODO: Use the social framework, Tweeter framework is deprecated
     
     if (NSClassFromString(@"TWTweetComposeViewController") && [TWTweetComposeViewController canSendTweet])
     {
@@ -163,7 +163,7 @@
 
 //    FBShareDialogParams *params = [[FBShareDialogParams alloc] init];
 //    params.link = [NSURL URLWithString:link];
-
+//
 //    if ([FBDialogs canPresentShareDialogWithParams:params])
 //    {
 //        [FBDialogs presentShareDialogWithParams:params clientState:nil handler:^(FBAppCall *call, NSDictionary *results, NSError *error) {
